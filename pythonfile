@@ -1,0 +1,13 @@
+from tkinter import *
+import customtkinter as ctk
+from PIL import Image
+import PIL
+
+root = ctk.CTk()
+root.geometry("1000x600")
+root.title("Miss Chilla's Gaming Fractions App")
+root.resizable(width=True, height=True)
+
+#imag frame
+image_frame = ctk.CTkFrame(root, corner_radius=0) # no rounded corner
+image_frame.place(x=0, y=0, relwidth=1, relheight=1)  #relative height from window edges 
