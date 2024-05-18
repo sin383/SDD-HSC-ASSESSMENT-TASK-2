@@ -5,9 +5,59 @@ import PIL
 
 root = ctk.CTk()
 root.geometry("1000x600")
-root.title("Miss Chilla's Gaming Fractions App")
+root.title("Miss Chilla Gaming")
 root.resizable(width=True, height=True)
 
-#imag frame
-image_frame = ctk.CTkFrame(root, corner_radius=0) # no rounded corner
-image_frame.place(x=0, y=0, relwidth=1, relheight=1)  #relative height from window edges 
+# Creating a separate frame for the image
+image_frame = ctk.CTkFrame(root, corner_radius=0)
+image_frame.place(x=0, y=0, relwidth=1, relheight=1)  # Place the image frame at the back
+
+my_image=ctk.CTkImage(light_image=Image.open("C:/Users/ojaye/Downloads/7.jpg"), dark_image=Image.open("C:/Users/ojaye/Downloads/7.jpg"), size=(1000,1000))
+mylabel = ctk.CTkLabel(image_frame, text="", image=my_image)  #image
+mylabel.place(x=0, y=0, relwidth=1, relheight=1)
+
+#Creating a frame for labels with rounded edges
+label_frame = ctk.CTkFrame(image_frame, corner_radius=100, fg_color="transparent", bg_color="transparent")  # Set corner_radius to give the frame rounded edges
+label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative width and height from the edges so it leaves a small gap at the back
+
+firstTermLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 18, 'bold'))
+firstTermLabel.place(x=370, y=10)  
+
+# Creating lessons and settings button
+mybutton = ctk.CTkButton(label_frame, width=450, height=64, border_width=0,corner_radius=8,text="Lessons")
+mybutton.place(x=240, y=225) 
+
+mybutton2 = ctk.CTkButton(label_frame, width=220, height=64, border_width=0,corner_radius=8,text="Settings")
+mybutton2.place(x=240, y=300)  
+
+
+#scrollable frame for lessons
+Currentframe = int(1)
+Difficulty = ctk.CTkScrollableFrame(image_frame)
+Difficulty.place(x=0, y=0, relwidth=1, relheight=1)
+Difficulty.place_forget()
+
+
+
+Topic1 = ctk.CTkButton(Difficulty, width=450, height=64, border_width=0,corner_radius=8,text="Learn Fractions")
+Topic1.place(x=240, y=225)
+
+
+def button3():
+    label_frame.place_forget()
+    mybutton3.place_forget()
+    Currentframe = int(3)
+    Difficulty.place(x=0,y=0)
+    Topic1.place(x=10, y=15)
+    
+
+
+
+
+
+
+
+mybutton3 = ctk.CTkButton(label_frame, width=220, height=64, border_width=0,corner_radius=8,text="Quizzes", command=button3)
+mybutton3.place(x=470, y=300)
+
+root.mainloop
