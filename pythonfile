@@ -41,6 +41,10 @@ def Lessonswindows():
     
     lessonframe = ctk.CTkFrame(image_frame)
     lessonframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
+    lessontypeframe = ctk.CTkScrollableFrame(lessonframe, corner_radius=10, bg_color="Blue")
+    lessontypeframe.place(x=0, y=0, relwidth=0.3, relheight=0.9)
+    Lessoncontentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lessoncontentframe.place(x=300, y=0, relwidth=0.7, relheight=0.9)
     label_frame.place_forget()
     def back1():
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
@@ -48,6 +52,11 @@ def Lessonswindows():
 
     lessonbackbutton = ctk.CTkButton(lessonframe, text="Back", command=back1)
     lessonbackbutton.place(x=750, y=500)
+    tempbutton = ctk.CTkButton(Lessoncontentframe, text="Lol")
+    tempbutton.place(x=350, y=10)
+    tempbutton2 = ctk.CTkButton(lessontypeframe, text="7")
+    tempbutton2.place(x=50, y=10)
+
 
 def Settingsmenu():
     pass
