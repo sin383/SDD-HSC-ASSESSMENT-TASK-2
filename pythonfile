@@ -13,7 +13,7 @@ image_frame = ctk.CTkFrame(root, corner_radius=0)
 image_frame.place(x=0, y=0, relwidth=1, relheight=1)  # Place the image frame at the back
 
 
-my_image=ctk.CTkImage(light_image=Image.open("C:/Users/ojaye/Downloads/7.jpg"), dark_image=Image.open("C:/Users/ojaye/Downloads/7.jpg"), size=(1000,1000))
+my_image=ctk.CTkImage(light_image=Image.open("C:/Users/ojaye/Downloads/77.png"), dark_image=Image.open("C:/Users/ojaye/Downloads/77.png"), size=(1000,1000))
 mylabel = ctk.CTkLabel(image_frame, text="", image=my_image)  #image
 mylabel.place(x=0, y=0, relwidth=1, relheight=1)
 
@@ -42,9 +42,9 @@ def Lessonswindows():
     lessonframe = ctk.CTkFrame(image_frame)
     lessonframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
     lessontypeframe = ctk.CTkScrollableFrame(lessonframe, corner_radius=10, bg_color="Blue")
-    lessontypeframe.place(x=0, y=0, relwidth=0.3, relheight=0.9)
+    lessontypeframe.place(x=0, y=0, relwidth=0.3, relheight=1)
     Lessoncontentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
-    Lessoncontentframe.place(x=300, y=0, relwidth=0.7, relheight=0.9)
+    Lessoncontentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
     label_frame.place_forget()
     def back1():
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
@@ -55,7 +55,7 @@ def Lessonswindows():
     tempbutton = ctk.CTkButton(Lessoncontentframe, text="Lol")
     tempbutton.place(x=350, y=10)
     tempbutton2 = ctk.CTkButton(lessontypeframe, text="7")
-    tempbutton2.place(x=50, y=10)
+    tempbutton2.place(x=0, y=10)
 
 
 def Settingsmenu():
