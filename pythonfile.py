@@ -2,6 +2,7 @@ from tkinter import *
 import customtkinter as ctk
 from PIL import Image
 import PIL
+from os import path
 
 root = ctk.CTk()
 root.geometry("1000x600")
@@ -33,9 +34,15 @@ def Quizmenu():
     global Quizframe
     label_frame.place_forget()
     Quizframe = ctk.CTkFrame(image_frame)
-    Quizframe.place(x=0, y=0)
+    Quizframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
     Quizexample = ctk.CTkEntry(Quizframe)
     Quizexample.place(x=5, y=10)
+    def back1():
+        label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
+        Quizframe.place_forget()
+
+    lessonbackbutton = ctk.CTkButton(Quizframe, text="Back", command=back1)
+    lessonbackbutton.place(x=750, y=500)
 
 def Lessonswindows():
     
@@ -55,17 +62,48 @@ def Lessonswindows():
     tempbutton = ctk.CTkButton(Lessoncontentframe, text="Lol")
     tempbutton.place(x=350, y=10)
     tempbutton2 = ctk.CTkButton(lessontypeframe, text="7")
-    tempbutton2.place(x=0, y=10)
+    tempbutton2.place(x=50, y=50)   
 
 
 def Settingsmenu():
-    pass
+    label_frame.place_forget()
+    Settingsframe = ctk.CTkFrame(image_frame)
+    Settingsframe.place(x=250, y=30, relwidth=0.5, relheight=0.9)
+
+    def backsettings():
+        Settingsframe.place_forget()
+        label_frame.place(relx=0.04, rely=0.04, relwidth=0.4, relheight=0.9)
+
+    settingsbackbutton = ctk.CTkButton(Settingsframe, text="Back", command=backsettings)
+    settingsbackbutton.place(x=340, y=500)
+
+    def Appearance(selection):
+        choice_index = themes.index(optionmenu_2.get())
+        if choice_index == 0 :
+            ctk.set_appearance_mode("light")
+        elif choice_index == 1:
+            ctk.set_appearance_mode("dark")
+        elif choice_index == 2:
+            ctk.set_appearance_mode("system")
+
+
+    themes = ["Light", "Dark", "System"]
+    optionmenu_2 = ctk.CTkOptionMenu(Settingsframe, values=themes, command=Appearance)
+    optionmenu_2.place(x=150, y=170)
+    optionmenu_2.set("System")
+
+    OptionLabel2 = ctk.CTkLabel(Settingsframe, text= "Appearance Mode")
+    OptionLabel2.place(x=150, y=130)   
+    Settingstitlelabel = ctk.CTkLabel
+
+    current_theme = ctk.get_appearance_mode()
+
 
 # Creating lessons and settings button
 mybutton = ctk.CTkButton(label_frame, width=450, height=64, border_width=0,corner_radius=8,text="Lessons", command=Lessonswindows)
 mybutton.place(x=240, y=225) 
 
-SettingsButton = ctk.CTkButton(label_frame, width=220, height=64, border_width=0,corner_radius=8,text="Settings")
+SettingsButton = ctk.CTkButton(label_frame, width=220, height=64, border_width=0,corner_radius=8,text="Settings", command=Settingsmenu)
 SettingsButton.place(x=240, y=300) 
 
 Quiz_Button = ctk.CTkButton(label_frame, width=220, height=64, border_width=0,corner_radius=8,text="Quizzes", command=Quizmenu)
