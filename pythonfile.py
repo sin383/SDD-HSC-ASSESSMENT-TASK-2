@@ -46,47 +46,54 @@ def Quizmenu():
     lessonbackbutton.place(x=750, y=500)
 
 def Lessonswindows():
-    
+    #making a lesson frame
     lessonframe = ctk.CTkFrame(image_frame)
     lessonframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
+    #making the left side frame for choosing lessons
     lessontypeframe = ctk.CTkScrollableFrame(lessonframe, corner_radius=10)
-    lessontypeframe.place(x=0, y=0)
+    lessontypeframe.place(x=0, y=70, relwidth=0.3, relheight=0.87)
+    #making the right side frame for displaying content
     Lessoncontentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
     Lessoncontentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+    #hiding the menu frame
     label_frame.place_forget()
     def back1():
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
-        lessonframe.place_forget()
-
+        lessonframe.place_forget() #back button that hides the lesson frame and shows the menu frame
+    #back button for lesson
     lessonbackbutton = ctk.CTkButton(lessonframe, text="Back", command=back1)
     lessonbackbutton.place(x=750, y=500)
+    #placeholder buttons
     tempbutton = ctk.CTkButton(Lessoncontentframe, text="Lol")
     tempbutton.place(x=350, y=10)
-    tempbutton2 = ctk.CTkButton(lessontypeframe, text="7")
-    tempbutton2.place(x=50, y=50)   
+
     def next1():
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
         lessonframe.place_forget()
     lessonnext1button = ctk.CTkButton(lessonframe, text="Next", command=next1)
     lessonnext1button.place(x=600, y=500)
 
+
+    #Title Label 
+    Lessontitle = ctk.CTkLabel(master=lessonframe, text="Lessons", height=70, width=235,font=('Helvetica', 18, 'bold'))
+    Lessontitle.place(x=20,y=0)
     #scrollable frame buttons
-    option1 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option1.place(x=15, y=0)
-    option2 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option2.place(x=15, y=50)
-    option3 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option3.place(x=15, y=150)
-    option4 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option4.place(x=15, y=250)
-    option5 = ctk.CTkButton(lessontypeframe, text="7")
-    option5.place(x=15, y=450)
-    option6 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option6.place(x=15, y=650)
-    option7 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option7.place(x=15, y=350)
-    option8 = ctk.CTkButton(master=lessontypeframe, text="7")
-    option8.place(x=5, y=50)
+    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235)
+    option1.pack(pady=7)
+    option2 = ctk.CTkButton(master=lessontypeframe, text="Fractions On A Number Line", height=70, width=235)
+    option2.pack(pady=7)
+    option3 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions", height=70, width=235)
+    option3.pack(pady=7)
+    option4 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions Extended", height=70, width=235)
+    option4.pack(pady=7)
+    option5 = ctk.CTkButton(master=lessontypeframe, text="Mixed Numerals", height=70, width=235)
+    option5.pack(pady=7)
+    option6 = ctk.CTkButton(master=lessontypeframe, text="Multiplying Fractions", height=70, width=235)
+    option6.pack(pady=7)
+    option7 = ctk.CTkButton(master=lessontypeframe, text="Dividing Fractions", height=70, width=235)
+    option7.pack(pady=7)
+    option8 = ctk.CTkButton(master=lessontypeframe, text="Word Problems", height=70, width=235)
+    option8.pack(pady=7)
 
 
 
@@ -103,7 +110,7 @@ def Settingsmenu():
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
 
     settingsbackbutton = ctk.CTkButton(Settingsframe, text="Back", command=backsettings)
-    settingsbackbutton.place(x=340, y=500)
+    settingsbackbutton.place(x=340, y=490)
 
     def Appearance(selection):
         choice_index = themes.index(optionmenu_2.get())
@@ -133,17 +140,18 @@ def Settingsmenu():
             root.geometry("1300x750")
         elif selection == "100%":
             root.geometry("1000x600")
-        elif selection == "150%":
-            root.geometry("1400x800")
+        elif selection == "140%":
+            root.geometry("1450x850")
         elif selection == "75%":
             root.geometry("800x500")
         elif selection == "50%":
             root.geometry("500x350")
 
-    optionmenu_1 = ctk.CTkOptionMenu(Settingsframe, values=["50%", "75%", "100%", "125%", "150%"], command=change_scaling_event)
+    optionmenu_1 = ctk.CTkOptionMenu(Settingsframe, values=["50%", "75%", "100%", "125%", "140%"], command=change_scaling_event)
     optionmenu_1.place(x=150, y=250)
     OptionLabel = ctk.CTkLabel(Settingsframe, text= "UI Scaling")
     OptionLabel.place(x=150, y=220)
+    optionmenu_1.set("Select Size")
     
 
 # Creating lessons and settings button
