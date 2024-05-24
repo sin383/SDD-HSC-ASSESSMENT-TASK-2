@@ -145,7 +145,7 @@ def Lessonswindows():
     option7.pack(pady=7)
     option8 = ctk.CTkButton(master=lessontypeframe, text="Word Problems", height=70, width=235)
     option8.pack(pady=7)
-
+# have if statements for when the program is at max or min scaling for lesson content
 
 
 
@@ -187,15 +187,15 @@ def Settingsmenu():
         scale = int(selection.strip('%')) / 100
         ctk.set_widget_scaling(scale)
         if selection == "125%":
-            root.geometry("1300x750")
+            root.geometry("1250x750")
         elif selection == "100%":
             root.geometry("1000x600")
         elif selection == "140%":
-            root.geometry("1450x850")
+            root.geometry("1400x840")
         elif selection == "75%":
-            root.geometry("800x500")
+            root.geometry("750x450")
         elif selection == "50%":
-            root.geometry("500x350")
+            root.geometry("500x300")
 
     optionmenu_1 = ctk.CTkOptionMenu(Settingsframe, values=["50%", "75%", "100%", "125%", "140%"], command=change_scaling_event)
     optionmenu_1.place(x=150, y=250)
@@ -203,6 +203,7 @@ def Settingsmenu():
     OptionLabel.place(x=150, y=220)
     optionmenu_1.set("Select Size")
     
+
 
 # Creating lessons and settings button
 mybutton = ctk.CTkButton(label_frame, width=450, height=64, border_width=0,corner_radius=8,text="Lessons", command=Lessonswindows)
