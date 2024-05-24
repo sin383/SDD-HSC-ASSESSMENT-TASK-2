@@ -1,27 +1,44 @@
 from tkinter import *
 import customtkinter as ctk
-from PIL import Image
+from PIL import *
 import PIL
 from os import path
 import os
 
+DIR_NAME = path.dirname(path.abspath(__file__))
 root = ctk.CTk()
 root.geometry("1000x600")
 root.title("Miss Chilla Gaming")
 root.resizable(width=True, height=True)
 
+#image
+L1image2path = path.join(DIR_NAME, "assets", "8.png")
+L1image2 = Image.open(L1image2path)
+
+
+# Load the second image
+L1image1path = path.join(DIR_NAME, "assets", "j.png")
+L1image1 = Image.open(L1image1path)
+
+yespath = path.join(DIR_NAME, "assets", "77.png")
+yes = Image.open(yespath)
+yesimage=ctk.CTkImage(yes, size=(1800,1600))
+
+# Create CTkImage objects
+thefirstimage = ctk.CTkImage(L1image2, size=(400,150))
+thesecondimage = ctk.CTkImage(L1image1, size=(50,70))
+
 # Creating a separate frame for the image
 image_frame = ctk.CTkFrame(root, corner_radius=0)
-image_frame.place(x=0, y=0, relwidth=1, relheight=1)  # Place the image frame at the back
+image_frame.place(x=0, y=0, relwidth=1, relheight=1)  
 
 
-my_image=ctk.CTkImage(light_image=Image.open("C:/Users/ojaye/Downloads/77.png"), dark_image=Image.open("C:/Users/ojaye/Downloads/77.png"), size=(1000,1000))
-mylabel = ctk.CTkLabel(image_frame, text="", image=my_image)  #image
+mylabel = ctk.CTkLabel(image_frame, text="", image=yesimage)  #image
 mylabel.place(x=0, y=0, relwidth=1, relheight=1)
 
 #Creating a frame for labels with rounded edges
-label_frame = ctk.CTkFrame(image_frame, corner_radius=100, fg_color="transparent", bg_color="transparent")  # Set corner_radius to give the frame rounded edges
-label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative width and height from the edges so it leaves a small gap at the back
+label_frame = ctk.CTkFrame(image_frame, corner_radius=100, fg_color="transparent", bg_color="transparent")  # round edges 
+label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative width and height from the edges so it leaves a small gap so miss chilla can see the background 
 
 TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 18, 'bold'))
 TitleLabel.place(x=370, y=10)  
@@ -46,6 +63,7 @@ def Quizmenu():
     lessonbackbutton.place(x=750, y=500)
 
 def Lessonswindows():
+    global current_frame
     #making a lesson frame
     lessonframe = ctk.CTkFrame(image_frame)
     lessonframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
@@ -57,28 +75,61 @@ def Lessonswindows():
     Lessoncontentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
     #hiding the menu frame
     label_frame.place_forget()
-    def back1():
+    current_frame = Lessoncontentframe
+    def back1(): #back button
+        global current_frame
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
-        lessonframe.place_forget() #back button that hides the lesson frame and shows the menu frame
-    #back button for lesson
-    lessonbackbutton = ctk.CTkButton(lessonframe, text="Back", command=back1)
-    lessonbackbutton.place(x=750, y=500)
-    #placeholder buttons
-    tempbutton = ctk.CTkButton(Lessoncontentframe, text="Lol")
-    tempbutton.place(x=350, y=10)
+        lessonframe.place_forget()  
+        current_frame = label_frame
+
+
+    lessonbackbutton = ctk.CTkButton(Lessoncontentframe, text="Back", command=back1)
+    lessonbackbutton.place(x=315, y=500)
+
+    #second lesson frame
+    Lesson_2contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
 
     def next1():
-        label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
-        lessonframe.place_forget()
-    lessonnext1button = ctk.CTkButton(lessonframe, text="Next", command=next1)
-    lessonnext1button.place(x=600, y=500)
+        global current_frame
+        Lesson_2contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        Lessoncontentframe.place_forget()
+        current_frame = Lesson_2contentframe
+
+    lessonnext1button = ctk.CTkButton(Lessoncontentframe, text="Next", command=next1)
+    lessonnext1button.place(x=465, y=500)
+
+    #Lessons
+
+    
+    #Lesson 1
+    L1label = ctk.CTkLabel(Lessoncontentframe, text="What is a Fraction?")
+    L1label2 = ctk.CTkLabel(Lessoncontentframe, text=("A fraction is a part of a whole,\nFor example “one half” is represented as ½" ))
+    L1label.place(x=200, y=20)
+    L1label2.place(x=150, y=90)
+    image_label1 = ctk.CTkLabel(Lessoncontentframe, image=thefirstimage, text="")
+    image_label1.place(x=100, y=300)
+    image_label2 = ctk.CTkLabel(Lessoncontentframe, image=thesecondimage, text="")
+    image_label2.place(x=300, y=200)
+
+
+
+
+
+
+    #lesson changing commands
+
+    def coption1():
+        global current_frame
+        current_frame.place_forget()
+        Lessoncontentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lessoncontentframe
 
 
     #Title Label 
     Lessontitle = ctk.CTkLabel(master=lessonframe, text="Lessons", height=70, width=235,font=('Helvetica', 18, 'bold'))
     Lessontitle.place(x=20,y=0)
     #scrollable frame buttons
-    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235)
+    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235, command=coption1)
     option1.pack(pady=7)
     option2 = ctk.CTkButton(master=lessontypeframe, text="Fractions On A Number Line", height=70, width=235)
     option2.pack(pady=7)
@@ -94,7 +145,6 @@ def Lessonswindows():
     option7.pack(pady=7)
     option8 = ctk.CTkButton(master=lessontypeframe, text="Word Problems", height=70, width=235)
     option8.pack(pady=7)
-
 
 
 
