@@ -26,7 +26,7 @@ yesimage=ctk.CTkImage(yes, size=(1800,1600))
 
 # Create CTkImage objects
 thefirstimage = ctk.CTkImage(L1image2, size=(400,150))
-thesecondimage = ctk.CTkImage(L1image1, size=(50,70))
+thesecondimage = ctk.CTkImage(L1image1, size=(70,105))
 
 # Creating a separate frame for the image
 image_frame = ctk.CTkFrame(root, corner_radius=0)
@@ -102,14 +102,27 @@ def Lessonswindows():
 
     
     #Lesson 1
-    L1label = ctk.CTkLabel(Lessoncontentframe, text="What is a Fraction?")
+    L1label = ctk.CTkLabel(Lessoncontentframe, text="What is a Fraction?", font=('Helvetica', 15, 'bold'))
     L1label2 = ctk.CTkLabel(Lessoncontentframe, text=("A fraction is a part of a whole,\nFor example “one half” is represented as ½" ))
-    L1label.place(x=200, y=20)
-    L1label2.place(x=150, y=90)
+    L1label.place(x=240, y=20)
+    L1label2.place(x=170, y=70)
+
+    L1label3 = ctk.CTkLabel(Lessoncontentframe, text="A fraction has a numerator and a denominator")
+    L1label3.place(x=170, y=120)
+
+    L1label4 = ctk.CTkLabel(Lessoncontentframe, text="The numerator is the number \n on the top and shows how many \n parts of the whole there are")
+    L1label4.place(x=70, y=205)
+
+    L1label5 = ctk.CTkLabel(Lessoncontentframe, text="The denominator is the number \n on the bottom, and shows how many \n equal parts make up the whole")
+    L1label5.place(x=370, y=205)
+
+    L1label6 = ctk.CTkLabel(Lessoncontentframe, text="If the number at the top stays the same, the bigger the number at the bottom is, the smaller the fraction")
+    L1label6.place(x=10, y=300)
+
     image_label1 = ctk.CTkLabel(Lessoncontentframe, image=thefirstimage, text="")
-    image_label1.place(x=100, y=300)
+    image_label1.place(x=100, y=340)
     image_label2 = ctk.CTkLabel(Lessoncontentframe, image=thesecondimage, text="")
-    image_label2.place(x=300, y=200)
+    image_label2.place(x=280, y=180)
 
 
 
