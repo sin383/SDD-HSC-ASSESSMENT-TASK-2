@@ -89,14 +89,7 @@ def Lessonswindows():
     #second lesson frame
     Lesson_2contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
 
-    def next1():
-        global current_frame
-        Lesson_2contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
-        Lessoncontentframe.place_forget()
-        current_frame = Lesson_2contentframe
 
-    lessonnext1button = ctk.CTkButton(Lessoncontentframe, text="Next", command=next1)
-    lessonnext1button.place(x=465, y=500)
 
     #Lessons
 
@@ -124,6 +117,10 @@ def Lessonswindows():
     image_label2 = ctk.CTkLabel(Lessoncontentframe, image=thesecondimage, text="")
     image_label2.place(x=280, y=180)
 
+    #Lesson2 
+    L2label = ctk.CTkLabel(Lesson_2contentframe, text="Fractions On A Number Line", font=('Helvetica', 15, 'bold'))
+    L2label = ctk.CTkLabel(Lesson_2contentframe, text="Fractions On A Number Line")
+
 
 
 
@@ -134,17 +131,28 @@ def Lessonswindows():
     def coption1():
         global current_frame
         current_frame.place_forget()
-        Lessoncontentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        Lessoncontentframe.place(x=260, y=0, relwidth=0.7, relheight=1)
         current_frame = Lessoncontentframe
 
+    def coption2():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_2contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        L2label.place(x=240, y=20)
+        current_frame = Lesson_2contentframe
+
+
+    #next buttons
+    lessonnext1button = ctk.CTkButton(Lessoncontentframe, text="Next", command=coption2)
+    lessonnext1button.place(x=465, y=500)
 
     #Title Label 
     Lessontitle = ctk.CTkLabel(master=lessonframe, text="Lessons", height=70, width=235,font=('Helvetica', 18, 'bold'))
     Lessontitle.place(x=20,y=0)
     #scrollable frame buttons
-    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235, command=coption1)
+    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235, command=coption1, fg_color="red", hover_color="crimson")
     option1.pack(pady=7)
-    option2 = ctk.CTkButton(master=lessontypeframe, text="Fractions On A Number Line", height=70, width=235)
+    option2 = ctk.CTkButton(master=lessontypeframe, text="Fractions On A Number Line", height=70, width=235, command=coption2)
     option2.pack(pady=7)
     option3 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions", height=70, width=235)
     option3.pack(pady=7)
