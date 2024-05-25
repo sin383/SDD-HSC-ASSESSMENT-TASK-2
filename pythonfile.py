@@ -24,6 +24,37 @@ yespath = path.join(DIR_NAME, "assets", "77.png")
 yes = Image.open(yespath)
 yesimage=ctk.CTkImage(yes, size=(1800,1600))
 
+#load lesson 2 images
+L2imagepath = path.join(DIR_NAME, "assets", "numberline.png")
+L2 = Image.open(L2imagepath)
+L2image = ctk.CTkImage(L2, size=(350,350))
+
+#load lesson 3 images
+L3imagepath = path.join(DIR_NAME, "assets", "same.png")
+L3 = Image.open(L3imagepath)
+L3image = ctk.CTkImage(L3, size=(450,230))
+
+#load lesson 4 images
+L4imagepath = path.join(DIR_NAME, "assets", "samed.png")
+L4 = Image.open(L4imagepath)
+L4image = ctk.CTkImage(L4, size=(450,230))
+
+#load lesson 5 images
+L5imagepath = path.join(DIR_NAME, "assets", "mixed.png")
+L5 = Image.open(L5imagepath)
+L5image = ctk.CTkImage(L5, size=(500,200))
+
+#load lesson 6 images
+L6imagepath = path.join(DIR_NAME, "assets", "multiplying.png")
+L6 = Image.open(L6imagepath)
+L6image = ctk.CTkImage(L6, size=(450,250))
+
+#load lesson 7 images
+L7imagepath = path.join(DIR_NAME, "assets", "dividing.png")
+L7 = Image.open(L7imagepath)
+L7image = ctk.CTkImage(L7, size=(450,300))
+
+
 # Create CTkImage objects
 thefirstimage = ctk.CTkImage(L1image2, size=(400,150))
 thesecondimage = ctk.CTkImage(L1image1, size=(70,105))
@@ -121,7 +152,7 @@ def Lessonswindows():
     L1label6.place(x=10, y=300)
 
     image_label1 = ctk.CTkLabel(Lessoncontentframe, image=thefirstimage, text="")
-    image_label1.place(x=100, y=340)
+    image_label1.place(x=100, y=330)
     image_label2 = ctk.CTkLabel(Lessoncontentframe, image=thesecondimage, text="")
     image_label2.place(x=280, y=180)
 
@@ -129,14 +160,41 @@ def Lessonswindows():
     #lesson2
     L2label = ctk.CTkLabel(Lesson_2contentframe, text="Fractions On A Number Line", font=('Helvetica', 15, 'bold'))
     L2label1 = ctk.CTkLabel(Lesson_2contentframe, text="Fractions can be represented on a number line. \n Remember that the larger the denominator, the smaller the fraction is")
+    L2image1 = ctk.CTkLabel(Lesson_2contentframe, image=L2image, text="")
 
     #Lesson3 
-    L3label = ctk.CTkLabel(Lesson_3contentframe, text="Fractions On A Number Line", font=('Helvetica', 15, 'bold'))
+    L3label = ctk.CTkLabel(Lesson_3contentframe, text="Adding Fractions with the Same Denominator", font=('Helvetica', 15, 'bold'))
     L3label1 = ctk.CTkLabel(Lesson_3contentframe, text="Just like with normal numbers, fractions can also be added to each other")
     L3label2 = ctk.CTkLabel(Lesson_3contentframe, text="If two fractions have the same denominator, they are like fractions and can be added easily")
     L3label3 = ctk.CTkLabel(Lesson_3contentframe, text="These two fractions can be added by adding the numbers at the top \n of the fraction (the numerator), while keeping the denominator the same")
+    L3image1 = ctk.CTkLabel(Lesson_3contentframe, image=L3image, text="")
 
     #Lesson4
+    L4label = ctk.CTkLabel(Lesson_4contentframe, text="Adding Fractions with a Different Denominator", font=('Helvetica', 15, 'bold'))
+    L4label1 = ctk.CTkLabel(Lesson_4contentframe, text="When fractions have different denominators, an extra step is needed to add them")
+    L4label2 = ctk.CTkLabel(Lesson_4contentframe, text="The LCM (Lowest common multiple) of the denominators needs to be found first")
+    L4label3 = ctk.CTkLabel(Lesson_4contentframe, text="Then add the numerators of these fractions together")
+    L4image1 = ctk.CTkLabel(Lesson_4contentframe, image=L4image, text="")
+
+    #Lesson5
+    L5label = ctk.CTkLabel(Lesson_5contentframe, text="Mixed Numerals and Improper Fractions", font=('Helvetica', 15, 'bold'))
+    L5label1 = ctk.CTkLabel(Lesson_5contentframe, text="Fractions can also be represented as mixed numerals and improper fractions \n when the numerator is greater than the denominator")
+    L5label2 = ctk.CTkLabel(Lesson_5contentframe, text="A mixed numeral has a whole number and a proper fraction")
+    L5label3 = ctk.CTkLabel(Lesson_5contentframe, text="An improper fraction has a numerator that is larger than the denominator e.g. 3 ½ = 7/2")
+    L5label4 = ctk.CTkLabel(Lesson_5contentframe, text="To convert an improper fraction to a mixed numeral, divide the numerator by the denominator, \n and the amount of times the denominator goes into the numerator becomes the whole number,\n and the remainder becomes the new numerator")
+    L5image1 = ctk.CTkLabel(Lesson_5contentframe, image=L5image, text="")
+
+    #Lesson6
+    L6label = ctk.CTkLabel(Lesson_6contentframe, text="Multiplying fractions", font=('Helvetica', 15, 'bold'))
+    L6label1 = ctk.CTkLabel(Lesson_6contentframe, text="Fractions can be multiplied with each other similar to normal numbers")
+    L6label2 = ctk.CTkLabel(Lesson_6contentframe, text="To multiply 2 fractions together, multiply the numerators of both fractions to get the new numerator \n then multiply the two denominators to get the new denominator")
+    L6image1 = ctk.CTkLabel(Lesson_6contentframe, image=L6image, text="")
+
+    #Lesson7
+    L7label = ctk.CTkLabel(Lesson_7contentframe, text="Dividing Fractions", font=('Helvetica', 15, 'bold'))
+    L7label1 = ctk.CTkLabel(Lesson_7contentframe, text="For fractions, division works similarly to multiplication")
+    L7label2 = ctk.CTkLabel(Lesson_7contentframe, text="To divide 2 fractions, flip the second fraction and change \n the division symbol to a multiplication symbol and then multiply the two numbers")
+    L7image1 = ctk.CTkLabel(Lesson_7contentframe, image=L7image, text="")
 
     #lesson changing commands
 
@@ -152,47 +210,64 @@ def Lessonswindows():
         Lesson_2contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
         L2label.place(x=200, y=20)
         L2label1.place(x=100, y=100)
+        L2image1.place(x=130, y=140)
         current_frame = Lesson_2contentframe
 
     def coption3():
         global current_frame
         current_frame.place_forget()
         Lesson_3contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
-        L3label.place(x=200, y=20)
+        L3label.place(x=160, y=20)
         L3label1.place(x=80, y=100)
         L3label2.place(x=60, y=150)
         L3label3.place(x=80, y=200)
+        L3image1.place(x=80, y=250)
         current_frame = Lesson_3contentframe
 
     def coption4():
         global current_frame
         current_frame.place_forget()
         Lesson_4contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        L4label.place(x=160, y=20)
+        L4label1.place(x=80, y=100)
+        L4label2.place(x=60, y=150)
+        L4label3.place(x=150, y=200)
+        L4image1.place(x=80, y=250)
         current_frame = Lesson_4contentframe
 
     def coption5():
         global current_frame
         current_frame.place_forget()
         Lesson_5contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        L5label.place(x=180, y=20)
+        L5label1.place(x=80, y=100)
+        L5label2.place(x=150, y=150)
+        L5label3.place(x=80, y=170)
+        L5label4.place(x=50, y=210)
+        L5image1.place(x=80, y=280)
         current_frame = Lesson_5contentframe
     
     def coption6():
         global current_frame
         current_frame.place_forget()
         Lesson_6contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        L6label.place(x=250, y=20)
+        L6label1.place(x=80, y=100)
+        L6label2.place(x=30, y=150)
+        L6image1.place(x=80, y=220)
         current_frame = Lesson_6contentframe
 
     def coption7():
         global current_frame
         current_frame.place_forget()
         Lesson_7contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        L7label.place(x=250, y=20)
+        L7label1.place(x=130, y=80)
+        L7label2.place(x=80, y=130)
+        L7image1.place(x=80, y=180)
         current_frame = Lesson_7contentframe
 
-    def coption8():
-        global current_frame
-        current_frame.place_forget()
-        Lesson_8contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
-        current_frame = Lesson_8contentframe
+
     
 
 
@@ -215,11 +290,12 @@ def Lessonswindows():
     lessonnext6button = ctk.CTkButton(Lesson_6contentframe, text="Next", command=coption7)
     lessonnext6button.place(x=465, y=500)
 
-    lessonnext7button = ctk.CTkButton(Lesson_7contentframe, text="Next", command=coption8)
+    lessonnext7button = ctk.CTkButton(Lesson_7contentframe, text="Next", command=coption1)
     lessonnext7button.place(x=465, y=500)
 
-    lessonnext8button = ctk.CTkButton(Lesson_8contentframe, text="Next", command=coption1)
-    lessonnext8button.place(x=465, y=500)
+
+
+
 
     
     #back buttons
@@ -241,8 +317,6 @@ def Lessonswindows():
     lessonback7button = ctk.CTkButton(Lesson_7contentframe, text="Back", command=coption6)
     lessonback7button.place(x=315, y=500)
 
-    lessonback8button = ctk.CTkButton(Lesson_8contentframe, text="Back", command=coption7)
-    lessonback8button.place(x=315, y=500)
 
     #Title Label 
     Lessontitle = ctk.CTkLabel(master=lessonframe, text="Lessons", height=70, width=235,font=('Helvetica', 18, 'bold'))
@@ -262,8 +336,6 @@ def Lessonswindows():
     option6.pack(pady=7)
     option7 = ctk.CTkButton(master=lessontypeframe, text="Dividing Fractions", height=70, width=235, command=coption7)
     option7.pack(pady=7)
-    option8 = ctk.CTkButton(master=lessontypeframe, text="Word Problems", height=70, width=235, command=coption8)
-    option8.pack(pady=7)
 # have if statements for when the program is at max or min scaling for lesson content
 
 
@@ -298,7 +370,8 @@ def Settingsmenu():
 
     OptionLabel2 = ctk.CTkLabel(Settingsframe, text= "Appearance Mode")
     OptionLabel2.place(x=150, y=130)   
-    Settingstitlelabel = ctk.CTkLabel
+    Settingstitlelabel = ctk.CTkLabel(Settingsframe, text="settings")
+    Settingstitlelabel.place(x=250,y=30)
 
     current_theme = ctk.get_appearance_mode()
 
