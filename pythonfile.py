@@ -125,15 +125,18 @@ def Lessonswindows():
     image_label2 = ctk.CTkLabel(Lessoncontentframe, image=thesecondimage, text="")
     image_label2.place(x=280, y=180)
 
-    #Lesson2 
+
+    #lesson2
     L2label = ctk.CTkLabel(Lesson_2contentframe, text="Fractions On A Number Line", font=('Helvetica', 15, 'bold'))
-    L2label1 = ctk.CTkLabel(Lesson_2contentframe, text="Just like with normal numbers, fractions can also be added to each other")
-    L2label2 = ctk.CTkLabel(Lesson_2contentframe, text="If two fractions have the same denominator, they are like fractions and can be added easily")
-    L2label3 = ctk.CTkLabel(Lesson_2contentframe, text="These two fractions can be added by adding the numbers at the top \n of the fraction (the numerator), while keeping the denominator the same")
+    L2label1 = ctk.CTkLabel(Lesson_2contentframe, text="Fractions can be represented on a number line. \n Remember that the larger the denominator, the smaller the fraction is")
 
+    #Lesson3 
+    L3label = ctk.CTkLabel(Lesson_3contentframe, text="Fractions On A Number Line", font=('Helvetica', 15, 'bold'))
+    L3label1 = ctk.CTkLabel(Lesson_3contentframe, text="Just like with normal numbers, fractions can also be added to each other")
+    L3label2 = ctk.CTkLabel(Lesson_3contentframe, text="If two fractions have the same denominator, they are like fractions and can be added easily")
+    L3label3 = ctk.CTkLabel(Lesson_3contentframe, text="These two fractions can be added by adding the numbers at the top \n of the fraction (the numerator), while keeping the denominator the same")
 
-
-
+    #Lesson4
 
     #lesson changing commands
 
@@ -149,14 +152,16 @@ def Lessonswindows():
         Lesson_2contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
         L2label.place(x=200, y=20)
         L2label1.place(x=100, y=100)
-        L2label2.place(x=100, y=120)
-        L2label3.place(x=100, y=200)
         current_frame = Lesson_2contentframe
 
     def coption3():
         global current_frame
         current_frame.place_forget()
         Lesson_3contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        L3label.place(x=200, y=20)
+        L3label1.place(x=80, y=100)
+        L3label2.place(x=60, y=150)
+        L3label3.place(x=80, y=200)
         current_frame = Lesson_3contentframe
 
     def coption4():
