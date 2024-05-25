@@ -88,6 +88,14 @@ def Lessonswindows():
 
     #second lesson frame
     Lesson_2contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lesson_3contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lesson_4contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lesson_5contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lesson_6contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lesson_7contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+    Lesson_8contentframe = ctk.CTkFrame(lessonframe, corner_radius=10)
+
+
 
 
 
@@ -119,8 +127,9 @@ def Lessonswindows():
 
     #Lesson2 
     L2label = ctk.CTkLabel(Lesson_2contentframe, text="Fractions On A Number Line", font=('Helvetica', 15, 'bold'))
-    L2label = ctk.CTkLabel(Lesson_2contentframe, text="Fractions On A Number Line")
-
+    L2label1 = ctk.CTkLabel(Lesson_2contentframe, text="Just like with normal numbers, fractions can also be added to each other")
+    L2label2 = ctk.CTkLabel(Lesson_2contentframe, text="If two fractions have the same denominator, they are like fractions and can be added easily")
+    L2label3 = ctk.CTkLabel(Lesson_2contentframe, text="These two fractions can be added by adding the numbers at the top \n of the fraction (the numerator), while keeping the denominator the same")
 
 
 
@@ -131,20 +140,104 @@ def Lessonswindows():
     def coption1():
         global current_frame
         current_frame.place_forget()
-        Lessoncontentframe.place(x=260, y=0, relwidth=0.7, relheight=1)
+        Lessoncontentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
         current_frame = Lessoncontentframe
 
     def coption2():
         global current_frame
         current_frame.place_forget()
         Lesson_2contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
-        L2label.place(x=240, y=20)
+        L2label.place(x=200, y=20)
+        L2label1.place(x=100, y=100)
+        L2label2.place(x=100, y=120)
+        L2label3.place(x=100, y=200)
         current_frame = Lesson_2contentframe
+
+    def coption3():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_3contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lesson_3contentframe
+
+    def coption4():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_4contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lesson_4contentframe
+
+    def coption5():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_5contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lesson_5contentframe
+    
+    def coption6():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_6contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lesson_6contentframe
+
+    def coption7():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_7contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lesson_7contentframe
+
+    def coption8():
+        global current_frame
+        current_frame.place_forget()
+        Lesson_8contentframe.place(x=280, y=0, relwidth=0.7, relheight=1)
+        current_frame = Lesson_8contentframe
+    
 
 
     #next buttons
     lessonnext1button = ctk.CTkButton(Lessoncontentframe, text="Next", command=coption2)
     lessonnext1button.place(x=465, y=500)
+
+    lessonnext2button = ctk.CTkButton(Lesson_2contentframe, text="Next", command=coption3)
+    lessonnext2button.place(x=465, y=500)
+
+    lessonnext3button = ctk.CTkButton(Lesson_3contentframe, text="Next", command=coption4)
+    lessonnext3button.place(x=465, y=500)
+
+    lessonnext4button = ctk.CTkButton(Lesson_4contentframe, text="Next", command=coption5)
+    lessonnext4button.place(x=465, y=500)
+
+    lessonnext5button = ctk.CTkButton(Lesson_5contentframe, text="Next", command=coption6)
+    lessonnext5button.place(x=465, y=500)
+
+    lessonnext6button = ctk.CTkButton(Lesson_6contentframe, text="Next", command=coption7)
+    lessonnext6button.place(x=465, y=500)
+
+    lessonnext7button = ctk.CTkButton(Lesson_7contentframe, text="Next", command=coption8)
+    lessonnext7button.place(x=465, y=500)
+
+    lessonnext8button = ctk.CTkButton(Lesson_8contentframe, text="Next", command=coption1)
+    lessonnext8button.place(x=465, y=500)
+
+    
+    #back buttons
+    lessonback2button = ctk.CTkButton(Lesson_2contentframe, text="Back", command=coption1)
+    lessonback2button.place(x=315, y=500)
+
+    lessonback3button = ctk.CTkButton(Lesson_3contentframe, text="Back", command=coption2)
+    lessonback3button.place(x=315, y=500)
+
+    lessonback4button = ctk.CTkButton(Lesson_4contentframe, text="Back", command=coption3)
+    lessonback4button.place(x=315, y=500)
+
+    lessonback5button = ctk.CTkButton(Lesson_5contentframe, text="Back", command=coption4)
+    lessonback5button.place(x=315, y=500)
+
+    lessonback6button = ctk.CTkButton(Lesson_6contentframe, text="Back", command=coption5)
+    lessonback6button.place(x=315, y=500)
+
+    lessonback7button = ctk.CTkButton(Lesson_7contentframe, text="Back", command=coption6)
+    lessonback7button.place(x=315, y=500)
+
+    lessonback8button = ctk.CTkButton(Lesson_8contentframe, text="Back", command=coption7)
+    lessonback8button.place(x=315, y=500)
 
     #Title Label 
     Lessontitle = ctk.CTkLabel(master=lessonframe, text="Lessons", height=70, width=235,font=('Helvetica', 18, 'bold'))
@@ -154,17 +247,17 @@ def Lessonswindows():
     option1.pack(pady=7)
     option2 = ctk.CTkButton(master=lessontypeframe, text="Fractions On A Number Line", height=70, width=235, command=coption2)
     option2.pack(pady=7)
-    option3 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions", height=70, width=235)
+    option3 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions", height=70, width=235, command=coption3)
     option3.pack(pady=7)
-    option4 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions Extended", height=70, width=235)
+    option4 = ctk.CTkButton(master=lessontypeframe, text="Adding Fractions Extended", height=70, width=235, command=coption4)
     option4.pack(pady=7)
-    option5 = ctk.CTkButton(master=lessontypeframe, text="Mixed Numerals", height=70, width=235)
+    option5 = ctk.CTkButton(master=lessontypeframe, text="Mixed Numerals", height=70, width=235, command=coption5)
     option5.pack(pady=7)
-    option6 = ctk.CTkButton(master=lessontypeframe, text="Multiplying Fractions", height=70, width=235)
+    option6 = ctk.CTkButton(master=lessontypeframe, text="Multiplying Fractions", height=70, width=235, command=coption6)
     option6.pack(pady=7)
-    option7 = ctk.CTkButton(master=lessontypeframe, text="Dividing Fractions", height=70, width=235)
+    option7 = ctk.CTkButton(master=lessontypeframe, text="Dividing Fractions", height=70, width=235, command=coption7)
     option7.pack(pady=7)
-    option8 = ctk.CTkButton(master=lessontypeframe, text="Word Problems", height=70, width=235)
+    option8 = ctk.CTkButton(master=lessontypeframe, text="Word Problems", height=70, width=235, command=coption8)
     option8.pack(pady=7)
 # have if statements for when the program is at max or min scaling for lesson content
 
