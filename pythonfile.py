@@ -20,7 +20,7 @@ L1image2 = Image.open(L1image2path)
 L1image1path = path.join(DIR_NAME, "assets", "j.png")
 L1image1 = Image.open(L1image1path)
 
-yespath = path.join(DIR_NAME, "assets", "77.png")
+yespath = path.join(DIR_NAME, "assets", "back.png")
 yes = Image.open(yespath)
 yesimage=ctk.CTkImage(yes, size=(1800,1600))
 
@@ -73,10 +73,7 @@ label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative 
 
 TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 18, 'bold'))
 TitleLabel.place(x=370, y=10)  
-
-
-
-
+root.resizable(width=False, height=False)
 
 
 def Quizmenu():
@@ -84,8 +81,84 @@ def Quizmenu():
     label_frame.place_forget()
     Quizframe = ctk.CTkFrame(image_frame)
     Quizframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
-    Quizexample = ctk.CTkEntry(Quizframe)
-    Quizexample.place(x=5, y=10)
+
+    # Define the questions and the correct answers
+    questions = {
+        "add_same_denominator": [("What is 1/2 + 1/2?", ["1"]), ("What is 1/4 + 2/4?", ["3/4"]), ("What is 1/9 + 7/9?", ["8/9"]), ("What is 1/7 + 6/7?", ["1", "7/7"]), ("What is 3/5 + 1/5?", ["4/5"]), ("What is 2/6 + 3/6?", ["5/6"]), ("What is 10/100 + 50/100?", ["60/100", "6/10", "3/5"]), ("What is 1/3 + 1/3?", ["2/3"]), ("What is 2/11 + 7/11?", ["9/11"]), ("What is 2/11 + 7/11?", ["9/11"])], 
+        "add_diff_denominator": [("What is 1/2 + 1/3?", ["5/6"]), ("What is 1/4 + 1/3?", ["7/12"]), ("What is 1/4 + 1/6?", ["1/2", "3/6"]), ("What is 1/7 + 1/3?", ["10/21"]), ("What is 1/9 + 1/3?", ["4/9"]), ("What is 3/4 + 1/8?", ["7/8"]), ("What is 1/6 + 1/5?", ["11/30"]), ("What is 1/4 + 1/6 + 1/3?", ["8/12", "2/3"]), ("What is 1/6 + 1/3?", ["1/2"])],  
+        "add_mixed_improper": [("What is 1 1/2 + 2/3?", ["2 1/6", "13/6"]), ("What is 2 1/4 + 1 2/3?", ["3 11/12", "47/12"]), ("What is 1/4 + 1?", ["5/4", "1 1/4"]), ("What is 1/2 + 4/2?", ["5/2", "2 1/2"]), ("What is 3/4 + 2/3?", ["17/12", "1 5/12"]), ("What is 3/5 + 8/10?", ["7/5", "14/10", "1 2/5"]), ("What is 1/4 + 1/3 + 5/6?", ["17/12", "1 5/12"])],  
+        "subtract": [("What is 1/2 - 1/4?", ["1/4"]), ("What is 3/4 - 1/4?", ["1/2"]), ("What is 3/4 - 1/3?", ["5/12"]), ("What is 3/5 - 1/5?", ["2/5"]), ("What is 7/4 - 1/4?", ["6/4", "3/2", "1 1/2"]), ("What is 9/2 - 7/2?", ["1"]), ("What is 3 - 1/4?", ["11/4", "2 3/4"]), ("What is 1/4 - 1/8?", ["1/8"]), ("What is 3/4 - 3/4?", ["0"]), ("What is 7/4 - 3/4?", ["1"])],  
+        "multiply": [("What is 1/2 * 1/2?", ["1/4"]), ("What is 1/4 * 2?", ["1/2"]), ("What is 2/3 * 3/4?", ["1/2"]), ("What is 1/5 * 2/3?", ["2/15"]), ("What is 3/4 * 4/5?", ["3/5"]), ("What is 5/6 * 2/3?", ["10/18", "5/9"]), ("What is 7/8 * 1/3?", ["7/24"]), ("What is 2/5 * 3/4?", ["6/20", "3/10"]), ("What is 1/2 * 3/5?", ["3/10"]), ("What is 5/6 * 1/2?", ["5/12"])],  
+        "divide": [("What is 1/2 / 1/4?", ["2"]), ("What is 3/4 / 1/2?", ["1 1/2", "3/2"]), ("What is 2/3 / 1/3?", ["2"]), ("What is 5/6 / 1/2?", ["1 1/3", "4/3"]), ("What is 7/8 / 1/4?", ["3 1/2", "7/2"]), ("What is 2/5 / 1/5?", ["4"]), ("What is 1/2 / 1/3?", ["1 1/2", "3/2"]), ("What is 3/4 / 2/3?", ["1 1/8", "9/8"]), ("What is 5/6 / 1/3?", ["2 1/2", "5/2"]), ("What is 7/8 / 1/2?", ["1 3/4", "7/4"])],  
+    }
+
+    # Create buttons for each question type
+    buttons = []
+    for i, question_type in enumerate(questions.keys()):
+        button = ctk.CTkButton(Quizframe, text=f"Start {question_type.replace('_', ' ')} quiz", command=lambda question_type=question_type: start_quiz(question_type))
+        button.place(relx=0.5, rely=0.1 + i*0.12, anchor='center')  # Place the button in the middle
+        button.configure(width=200, height=50)  # Make the button bigger
+        buttons.append(button)
+
+    # starting the quiz
+    def start_quiz(question_type):
+        # Remove the buttons
+        for button in buttons:
+            button.place_forget()
+
+        question_list = questions[question_type]
+        current_question = 0
+
+        # Function to check the answer
+        def check_answer():
+            question, correct_answers = question_list[current_question-1] #the thing starts at 0 so you have to subtract 1
+            user_answer = answer_entry.get()
+            if user_answer in correct_answers:
+                result = "Correct!"
+                next_button.configure(state="normal")  # Enable the "Next" button
+            else:
+                result = "Incorrect. The correct answer is one of: " + ', '.join(correct_answers)
+                next_button.configure(state="disabled")  # Disable the "Next" button
+            result_label.configure(text=result)
+
+        # Function to load the next question
+        def load_question():
+            nonlocal current_question
+            if current_question < len(question_list) - 1:
+                question, _ = question_list[current_question]
+                question_label.configure(text=question)
+                answer_entry.delete(0, 'end')
+                submit_button.configure(command=check_answer)
+                next_button.configure(state="disabled")  # Disable the "Next" button initially
+                current_question += 1
+            else:
+                Quizframe.place_forget()
+                Quizmenu()  # Go back to the topic selection menu
+
+        # Create a label to display the question
+        question_label = ctk.CTkLabel(Quizframe)
+        question_label.place(x=5, y=10)
+
+        # Create an entry to input the answer
+        answer_entry = ctk.CTkEntry(Quizframe)
+        answer_entry.place(x=5, y=40)
+        answer_entry.bind('<Return>', lambda event: check_answer())  # Bind the Enter key to the check answer function
+
+        # Create a label to display the result
+        result_label = ctk.CTkLabel(Quizframe, text="")
+        result_label.place(x=5, y=70)
+
+        # Create a button to submit the answer
+        submit_button = ctk.CTkButton(Quizframe, text="Submit", command=check_answer)
+        submit_button.place(x=5, y=100)
+
+        # Create a button to go to the next question
+        next_button = ctk.CTkButton(Quizframe, text="Next", command=load_question, state="disabled")  # Disable the next button initially
+        next_button.place(x=150, y=100)
+
+        # Load the first question
+        load_question()
+    #back button
     def back1():
         label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
         Quizframe.place_forget()
@@ -93,8 +166,22 @@ def Quizmenu():
     lessonbackbutton = ctk.CTkButton(Quizframe, text="Back", command=back1)
     lessonbackbutton.place(x=750, y=500)
 
+
+
+
+
+
+
+
+
+
+
+
+
 def Lessonswindows():
-    global current_frame
+    
+    global current_frame, lessonframe, lessontypeframe, Lessoncontentframe, label_frame, Lesson_2contentframe, Lesson_3contentframe, Lesson_4contentframe, Lesson_5contentframe, Lesson_6contentframe, Lesson_7contentframe, Lesson_8contentframe, L1label, L1label2, L1label3, L1label4, L1label5, L1label6, image_label1, image_label2, L2label, L2label1, L2image1, L3label, L3label1, L3label2, L3label3, L3image1, L4label, L4label1, L4label2, L4label3, L4image1, L5label, L5label1, L5label2, L5label3, L5label4, L5image1, L6label, L6label1, L6label2, L6image1, L7label, L7label1, L7label2, L7image1, Lessontitle, option1, option2, option3, option4, option5, option6, option7
+
     #making a lesson frame
     lessonframe = ctk.CTkFrame(image_frame)
     lessonframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
@@ -322,7 +409,7 @@ def Lessonswindows():
     Lessontitle = ctk.CTkLabel(master=lessonframe, text="Lessons", height=70, width=235,font=('Helvetica', 18, 'bold'))
     Lessontitle.place(x=20,y=0)
     #scrollable frame buttons
-    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235, command=coption1, fg_color="red", hover_color="crimson")
+    option1 = ctk.CTkButton(master=lessontypeframe, text="What Is A Fraction?", height=70, width=235, command=coption1)
     option1.pack(pady=7)
     option2 = ctk.CTkButton(master=lessontypeframe, text="Fractions On A Number Line", height=70, width=235, command=coption2)
     option2.pack(pady=7)
@@ -338,7 +425,7 @@ def Lessonswindows():
     option7.pack(pady=7)
 # have if statements for when the program is at max or min scaling for lesson content
 
-
+#Settings
 
 def Settingsmenu():
     global optionmenu_1
@@ -363,6 +450,64 @@ def Settingsmenu():
             ctk.set_appearance_mode("system")
 
 
+    def Fonts():
+        global selected_font
+        fonts = ["Helvetica", "Times", "Courier", "Symbol"]
+
+        # Create a StringVar to hold the selected font
+        selected_font = StringVar()
+
+        # Set the default font
+        selected_font.set(fonts[0])
+
+        # Create a function to update the font
+        def update_font(*args):
+            new_font = selected_font.get()
+            # Update the font of text
+            L1label.config(font=(new_font, 15, 'bold'))
+            L1label2.config(font=(new_font, 15, 'bold'))
+            L1label3.config(font=(new_font, 15, 'bold'))
+            L1label4.config(font=(new_font, 15, 'bold'))
+            L1label5.config(font=(new_font, 15, 'bold'))
+            L1label6.config(font=(new_font, 15, 'bold'))
+            L2label.config(font=(new_font, 15, 'bold'))
+            L2label1.config(font=(new_font, 15, 'bold'))
+            L3label.config(font=(new_font, 15, 'bold'))
+            L3label1.config(font=(new_font, 15, 'bold'))
+            L3label2.config(font=(new_font, 15, 'bold'))
+            L3label3.config(font=(new_font, 15, 'bold'))
+            L4label.config(font=(new_font, 15, 'bold'))
+            L4label1.config(font=(new_font, 15, 'bold'))
+            L4label2.config(font=(new_font, 15, 'bold'))
+            L4label3.config(font=(new_font, 15, 'bold'))
+            L5label.config(font=(new_font, 15, 'bold'))
+            L5label1.config(font=(new_font, 15, 'bold'))
+            L5label2.config(font=(new_font, 15, 'bold'))
+            L5label3.config(font=(new_font, 15, 'bold'))
+            L5label4.config(font=(new_font, 15, 'bold'))
+            L6label.config(font=(new_font, 15, 'bold'))
+            L6label1.config(font=(new_font, 15, 'bold'))
+            L6label2.config(font=(new_font, 15, 'bold'))
+            L7label.config(font=(new_font, 15, 'bold'))
+            L7label1.config(font=(new_font, 15, 'bold'))
+            L7label2.config(font=(new_font, 15, 'bold'))
+
+        # Call update_font when selected_font changes
+        selected_font.trace("w", update_font)
+        
+        # Create the dropdown
+        font_option_menu = ctk.CTkOptionMenu(Settingsframe, values=fonts, command=Fonts)
+        font_option_menu.place(x=150, y=330)
+        fontlabel = ctk.CTkLabel(Settingsframe, text="Font")
+        fontlabel.place(x=150, y=300)
+
+# Call the funtcion
+    Fonts()
+
+    
+        
+        
+    #themes
     themes = ["Light", "Dark", "System"]
     optionmenu_2 = ctk.CTkOptionMenu(Settingsframe, values=themes, command=Appearance)
     optionmenu_2.place(x=150, y=170)
@@ -374,7 +519,7 @@ def Settingsmenu():
     Settingstitlelabel.place(x=250,y=30)
 
     current_theme = ctk.get_appearance_mode()
-
+    #change geometry and scaling
     def change_scaling_event(selection):
         scale = int(selection.strip('%')) / 100
         ctk.set_widget_scaling(scale)
