@@ -27,9 +27,9 @@ pip install pyttsx3
 Download the project as a .ZIP file, and extract it 
 
 
-Open Python IDLE by searching for it in windows search 
-Then open the .py file in the program 
-Then run the program by pressing F5
+Open Python IDLE or VS Code by searching for it in windows search 
+Then open the whole folder in VS Code
+Then run the program by pressing F5 or the run button
 
 To view lessons, press the Lessons tab, the user can cycle through lessons using the next and back buttons, or directly jump to a lesson using the side panel
 Press the back button to go back to the main menu
