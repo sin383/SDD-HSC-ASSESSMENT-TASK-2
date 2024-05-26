@@ -22,7 +22,7 @@ L1image1 = Image.open(L1image1path)
 
 yespath = path.join(DIR_NAME, "assets", "back.png")
 yes = Image.open(yespath)
-yesimage=ctk.CTkImage(yes, size=(1800,1600))
+yesimage=ctk.CTkImage(yes, size=(700,700))
 
 #load lesson 2 images
 L2imagepath = path.join(DIR_NAME, "assets", "numberline.png")
