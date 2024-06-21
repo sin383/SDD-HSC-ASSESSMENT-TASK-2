@@ -4,6 +4,7 @@ from PIL import *
 import PIL
 from os import path
 import os
+import pyttsx3
 
 DIR_NAME = path.dirname(path.abspath(__file__))
 root = ctk.CTk()
@@ -103,7 +104,7 @@ def Quizmenu():
     # starting the quiz
     def start_quiz(question_type):
         # Remove the buttons
-        for button in buttons:
+        for button in buttons:  
             button.place_forget()
 
         question_list = questions[question_type]
@@ -124,10 +125,10 @@ def Quizmenu():
         # Function to load the next question
         def load_question():
             nonlocal current_question
-            if current_question < len(question_list) - 1:
+            if current_question < len(question_list) - 1: #-1 to match the questions
                 question, _ = question_list[current_question]
                 question_label.configure(text=question)
-                answer_entry.delete(0, 'end')
+                answer_entry.delete(0, 'end') #deletes all the 
                 submit_button.configure(command=check_answer)
                 next_button.configure(state="disabled")  # Disable the "Next" button initially
                 current_question += 1
@@ -285,6 +286,99 @@ def Lessonswindows():
 
     #lesson changing commands
 
+
+    #lessontts
+    def speak1():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("What is a Fraction?")
+            engine.runAndWait()
+            engine.say("A fraction is a part of a whole, For example one half is represented as one over two")
+            engine.runAndWait()
+            engine.say("A fraction has a 2 parts, a numerator and a denominator, where the numerator is on the top and the denominator is on the bottom")
+            engine.runAndWait() 
+            engine.say("A bigger denominator means a smaller fraction, so one seventh is smaller than one half")
+            engine.runAndWait()
+    speakbutton = ctk.CTkButton(Lessoncontentframe, width=20, height=20, text="🗣️", command=speak1)
+    speakbutton.place(x=550, y=10)
+
+    def speak2():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("Fractions On A Number Line.")
+            engine.runAndWait()
+            engine.say("Fractions can be represented on a number line.")
+            engine.runAndWait()
+            engine.say("Remember that the larger the denominator, the smaller the fraction is.")
+            engine.runAndWait()
+    speakbutton2 = ctk.CTkButton(Lesson_2contentframe, width=20, height=20, text="🗣️", command=speak2)
+
+    def speak3():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("Adding Fractions with the Same Denominator.")
+            engine.runAndWait()
+            engine.say("Just like with normal numbers, fractions can also be added to each other.")
+            engine.runAndWait()
+            engine.say("If two fractions have the same denominator, they are like fractions and can be added easily.")
+            engine.runAndWait()
+            engine.say("These two fractions can be added by adding the numbers at the top of the fraction (the numerator), while keeping the denominator the same")
+            engine.runAndWait()
+    speakbutton3 = ctk.CTkButton(Lesson_3contentframe, width=10, height=20, text="🗣️", command=speak3)
+
+    def speak4():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("Adding Fractions with a Different Denominator.")
+            engine.runAndWait()
+            engine.say("When fractions have different denominators, an extra step is needed to add them.")
+            engine.runAndWait()
+            engine.say("The LCM (Lowest common multiple) of the denominators needs to be found first.")
+            engine.runAndWait()
+            engine.say("Then add the numerators of these fractions together to get the result.")
+            engine.runAndWait()
+    speakbutton4 = ctk.CTkButton(Lesson_4contentframe, width=10, height=20, text="🗣️", command=speak4)
+
+
+    def speak5():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("Mixed Numerals and Improper Fractions")
+            engine.runAndWait()
+            engine.say("Fractions can also be represented as mixed numerals and improper fractions when the numerator is greater than the denominator")
+            engine.runAndWait()
+            engine.say("A mixed numeral has a whole number and a proper fraction")
+            engine.runAndWait()
+            engine.say("An improper fraction has a numerator that is larger than the denominator for exampel 3 and a half = 7 over 2")
+            engine.runAndWait()
+            engine.say("To convert an improper fraction to a mixed numeral, divide the numerator by the denominator, and the amount of times the denominator goes into the numerator becomes the whole number, and the remainder becomes the new numerator")
+            engine.runAndWait()
+    speakbutton5 = ctk.CTkButton(Lesson_5contentframe, width=10, height=20, text="🗣️", command=speak5)
+
+    def speak6():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("Multiplying fractions")
+            engine.runAndWait()
+            engine.say("Fractions can be multiplied with each other similar to normal numbers.")
+            engine.runAndWait()
+            engine.say("To multiply 2 fractions together, multiply the numerators of both fractions to get the new numerator then multiply the two denominators to get the new denominator")
+            engine.runAndWait()
+    speakbutton6 = ctk.CTkButton(Lesson_6contentframe, width=10, height=20, text="🗣️", command=speak6)
+
+    def speak7():
+            engine = pyttsx3.init()
+            engine.stop()
+            engine.say("Dividing Fractions")
+            engine.runAndWait()
+            engine.say("For fractions, division works similarly to multiplication")
+            engine.runAndWait()
+            engine.say("To divide 2 fractions, flip the second fraction and change the division symbol to a multiplication symbol and then multiply the two numbers")
+            engine.runAndWait()
+    speakbutton7 = ctk.CTkButton(Lesson_2contentframe, width=10, height=20, text="🗣️", command=speak7)
+
+    
+
     def coption1():
         global current_frame
         current_frame.place_forget()
@@ -298,6 +392,7 @@ def Lessonswindows():
         L2label.place(x=200, y=20)
         L2label1.place(x=100, y=100)
         L2image1.place(x=130, y=140)
+        speakbutton2.place(x=550, y=10)
         current_frame = Lesson_2contentframe
 
     def coption3():
@@ -309,6 +404,7 @@ def Lessonswindows():
         L3label2.place(x=60, y=150)
         L3label3.place(x=80, y=200)
         L3image1.place(x=80, y=250)
+        speakbutton3.place(x=550, y=10)
         current_frame = Lesson_3contentframe
 
     def coption4():
@@ -320,6 +416,7 @@ def Lessonswindows():
         L4label2.place(x=60, y=150)
         L4label3.place(x=150, y=200)
         L4image1.place(x=80, y=250)
+        speakbutton4.place(x=550, y=10)
         current_frame = Lesson_4contentframe
 
     def coption5():
@@ -332,6 +429,7 @@ def Lessonswindows():
         L5label3.place(x=80, y=170)
         L5label4.place(x=50, y=210)
         L5image1.place(x=80, y=280)
+        speakbutton5.place(x=550, y=10)
         current_frame = Lesson_5contentframe
     
     def coption6():
@@ -342,6 +440,7 @@ def Lessonswindows():
         L6label1.place(x=80, y=100)
         L6label2.place(x=30, y=150)
         L6image1.place(x=80, y=220)
+        speakbutton6.place(x=550, y=10)
         current_frame = Lesson_6contentframe
 
     def coption7():
@@ -352,11 +451,11 @@ def Lessonswindows():
         L7label1.place(x=130, y=80)
         L7label2.place(x=80, y=130)
         L7image1.place(x=80, y=180)
+        speakbutton7.place(x=550, y=10)
         current_frame = Lesson_7contentframe
 
 
     
-
 
     #next buttons
     lessonnext1button = ctk.CTkButton(Lessoncontentframe, text="Next", command=coption2)
@@ -496,10 +595,11 @@ def Settingsmenu():
         selected_font.trace("w", update_font)
         
         # Create the dropdown
-        font_option_menu = ctk.CTkOptionMenu(Settingsframe, values=fonts, command=Fonts)
+        font_option_menu = ctk.CTkOptionMenu(Settingsframe, values=fonts, command=update_font)
         font_option_menu.place(x=150, y=330)
         fontlabel = ctk.CTkLabel(Settingsframe, text="Font")
         fontlabel.place(x=150, y=300)
+
 
 # Call the funtcion
     Fonts()
