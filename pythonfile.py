@@ -5,6 +5,7 @@ import PIL
 from os import path
 import os
 import pyttsx3
+import threading
 
 DIR_NAME = path.dirname(path.abspath(__file__))
 root = ctk.CTk()
@@ -75,6 +76,9 @@ label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative 
 TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 18, 'bold'))
 TitleLabel.place(x=370, y=10)  
 root.resizable(width=False, height=False)
+
+engine = pyttsx3.init()
+engine.setProperty('rate', 50)
 
 
 def Quizmenu():
@@ -285,45 +289,65 @@ def Lessonswindows():
     L7image1 = ctk.CTkLabel(Lesson_7contentframe, image=L7image, text="")
 
     #lesson changing commands
-
+    
 
     #lessontts
+
+    
+
     def speak1():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("What is a Fraction?")
-            engine.runAndWait()
-            engine.say("A fraction is a part of a whole, For example one half is represented as one over two")
-            engine.runAndWait()
-            engine.say("A fraction has a 2 parts, a numerator and a denominator, where the numerator is on the top and the denominator is on the bottom")
-            engine.runAndWait() 
-            engine.say("A bigger denominator means a smaller fraction, so one seventh is smaller than one half")
-            engine.runAndWait()
+            phrases = [
+                "What is a Fraction?",
+                "A fraction is a part of a whole, For example one half is represented as one over two",
+                "A fraction has 2 parts, a numerator and a denominator, where the numerator is on the top and the denominator is on the bottom",
+                "A bigger denominator means a smaller fraction, so one seventh is smaller than one half"
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+    
+    # Run the tts function in a separate thread
+        threading.Thread(target=tts).start()
     speakbutton = ctk.CTkButton(Lessoncontentframe, width=20, height=20, text="🗣️", command=speak1)
     speakbutton.place(x=550, y=10)
 
+    
     def speak2():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("Fractions On A Number Line.")
-            engine.runAndWait()
-            engine.say("Fractions can be represented on a number line.")
-            engine.runAndWait()
-            engine.say("Remember that the larger the denominator, the smaller the fraction is.")
-            engine.runAndWait()
+            phrases = [
+                "Fractions On A Number Line.",
+                "Fractions can be represented on a number line.",
+                "Remember that the larger the denominator, the smaller the fraction is."
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+
+    # Run the tts function in a separate thread
+        threading.Thread(target=tts).start()
     speakbutton2 = ctk.CTkButton(Lesson_2contentframe, width=20, height=20, text="🗣️", command=speak2)
 
     def speak3():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("Adding Fractions with the Same Denominator.")
-            engine.runAndWait()
-            engine.say("Just like with normal numbers, fractions can also be added to each other.")
-            engine.runAndWait()
-            engine.say("If two fractions have the same denominator, they are like fractions and can be added easily.")
-            engine.runAndWait()
-            engine.say("These two fractions can be added by adding the numbers at the top of the fraction (the numerator), while keeping the denominator the same")
-            engine.runAndWait()
+            phrases = [
+                "Adding Fractions with the Same Denominator.",
+                "Just like with normal numbers, fractions can also be added to each other.",
+                "If two fractions have the same denominator, they are like fractions and can be added easily.",
+                "These two fractions can be added by adding the numbers at the top of the fraction (the numerator), while keeping the denominator the same"
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+
+        # Run the tts function in a separate thread
+        threading.Thread(target=tts).start()
     speakbutton3 = ctk.CTkButton(Lesson_3contentframe, width=10, height=20, text="🗣️", command=speak3)
 
     def speak4():
@@ -378,6 +402,7 @@ def Lessonswindows():
     speakbutton7 = ctk.CTkButton(Lesson_2contentframe, width=10, height=20, text="🗣️", command=speak7)
 
     
+
 
     def coption1():
         global current_frame
@@ -549,60 +574,6 @@ def Settingsmenu():
             ctk.set_appearance_mode("system")
 
 
-    def Fonts():
-        global selected_font
-        fonts = ["Helvetica", "Times", "Courier", "Symbol"]
-
-        # Create a StringVar to hold the selected font
-        selected_font = StringVar()
-
-        # Set the default font
-        selected_font.set(fonts[0])
-
-        # Create a function to update the font
-        def update_font(*args):
-            new_font = selected_font.get()
-            # Update the font of text
-            L1label.config(font=(new_font, 15, 'bold'))
-            L1label2.config(font=(new_font, 15, 'bold'))
-            L1label3.config(font=(new_font, 15, 'bold'))
-            L1label4.config(font=(new_font, 15, 'bold'))
-            L1label5.config(font=(new_font, 15, 'bold'))
-            L1label6.config(font=(new_font, 15, 'bold'))
-            L2label.config(font=(new_font, 15, 'bold'))
-            L2label1.config(font=(new_font, 15, 'bold'))
-            L3label.config(font=(new_font, 15, 'bold'))
-            L3label1.config(font=(new_font, 15, 'bold'))
-            L3label2.config(font=(new_font, 15, 'bold'))
-            L3label3.config(font=(new_font, 15, 'bold'))
-            L4label.config(font=(new_font, 15, 'bold'))
-            L4label1.config(font=(new_font, 15, 'bold'))
-            L4label2.config(font=(new_font, 15, 'bold'))
-            L4label3.config(font=(new_font, 15, 'bold'))
-            L5label.config(font=(new_font, 15, 'bold'))
-            L5label1.config(font=(new_font, 15, 'bold'))
-            L5label2.config(font=(new_font, 15, 'bold'))
-            L5label3.config(font=(new_font, 15, 'bold'))
-            L5label4.config(font=(new_font, 15, 'bold'))
-            L6label.config(font=(new_font, 15, 'bold'))
-            L6label1.config(font=(new_font, 15, 'bold'))
-            L6label2.config(font=(new_font, 15, 'bold'))
-            L7label.config(font=(new_font, 15, 'bold'))
-            L7label1.config(font=(new_font, 15, 'bold'))
-            L7label2.config(font=(new_font, 15, 'bold'))
-
-        # Call update_font when selected_font changes
-        selected_font.trace("w", update_font)
-        
-        # Create the dropdown
-        font_option_menu = ctk.CTkOptionMenu(Settingsframe, values=fonts, command=update_font)
-        font_option_menu.place(x=150, y=330)
-        fontlabel = ctk.CTkLabel(Settingsframe, text="Font")
-        fontlabel.place(x=150, y=300)
-
-
-# Call the funtcion
-    Fonts()
 
     
         
