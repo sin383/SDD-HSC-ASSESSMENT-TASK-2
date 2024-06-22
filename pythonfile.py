@@ -309,7 +309,7 @@ def Lessonswindows():
                 engine.say(phrase)
                 engine.runAndWait()
     
-    # Run the tts function in a separate thread
+    # run the tts function in a separate thread
         threading.Thread(target=tts).start()
     speakbutton = ctk.CTkButton(Lessoncontentframe, width=20, height=20, text="🗣️", command=speak1)
     speakbutton.place(x=550, y=10)
@@ -328,7 +328,6 @@ def Lessonswindows():
                 engine.say(phrase)
                 engine.runAndWait()
 
-    # Run the tts function in a separate thread
         threading.Thread(target=tts).start()
     speakbutton2 = ctk.CTkButton(Lesson_2contentframe, width=20, height=20, text="🗣️", command=speak2)
 
@@ -346,59 +345,75 @@ def Lessonswindows():
                 engine.say(phrase)
                 engine.runAndWait()
 
-        # Run the tts function in a separate thread
         threading.Thread(target=tts).start()
     speakbutton3 = ctk.CTkButton(Lesson_3contentframe, width=10, height=20, text="🗣️", command=speak3)
 
     def speak4():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("Adding Fractions with a Different Denominator.")
-            engine.runAndWait()
-            engine.say("When fractions have different denominators, an extra step is needed to add them.")
-            engine.runAndWait()
-            engine.say("The LCM (Lowest common multiple) of the denominators needs to be found first.")
-            engine.runAndWait()
-            engine.say("Then add the numerators of these fractions together to get the result.")
-            engine.runAndWait()
+            phrases = [
+                "Adding Fractions with a Different Denominator.",
+                "When fractions have different denominators, an extra step is needed to add them.",
+                "The LCM (Lowest common multiple) of the denominators needs to be found first.",
+                "Then add the numerators of these fractions together to get the result."
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+
+        threading.Thread(target=tts).start()
     speakbutton4 = ctk.CTkButton(Lesson_4contentframe, width=10, height=20, text="🗣️", command=speak4)
 
 
     def speak5():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("Mixed Numerals and Improper Fractions")
-            engine.runAndWait()
-            engine.say("Fractions can also be represented as mixed numerals and improper fractions when the numerator is greater than the denominator")
-            engine.runAndWait()
-            engine.say("A mixed numeral has a whole number and a proper fraction")
-            engine.runAndWait()
-            engine.say("An improper fraction has a numerator that is larger than the denominator for exampel 3 and a half = 7 over 2")
-            engine.runAndWait()
-            engine.say("To convert an improper fraction to a mixed numeral, divide the numerator by the denominator, and the amount of times the denominator goes into the numerator becomes the whole number, and the remainder becomes the new numerator")
-            engine.runAndWait()
+            phrases = [
+                "Mixed Numerals and Improper Fractions",
+                "Fractions can also be represented as mixed numerals and improper fractions when the numerator is greater than the denominator",
+                "A mixed numeral has a whole number and a proper fraction",
+                "An improper fraction has a numerator that is larger than the denominator for example 3 and a half = 7 over 2",
+                "To convert an improper fraction to a mixed numeral, divide the numerator by the denominator, and the amount of times the denominator goes into the numerator becomes the whole number, and the remainder becomes the new numerator"
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+
+        threading.Thread(target=tts).start()
     speakbutton5 = ctk.CTkButton(Lesson_5contentframe, width=10, height=20, text="🗣️", command=speak5)
 
     def speak6():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("Multiplying fractions")
-            engine.runAndWait()
-            engine.say("Fractions can be multiplied with each other similar to normal numbers.")
-            engine.runAndWait()
-            engine.say("To multiply 2 fractions together, multiply the numerators of both fractions to get the new numerator then multiply the two denominators to get the new denominator")
-            engine.runAndWait()
+            phrases = [
+                "Multiplying fractions",
+                "Fractions can be multiplied with each other similar to normal numbers.",
+                "To multiply 2 fractions together, multiply the numerators of both fractions to get the new numerator then multiply the two denominators to get the new denominator"
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+
+        threading.Thread(target=tts).start()
     speakbutton6 = ctk.CTkButton(Lesson_6contentframe, width=10, height=20, text="🗣️", command=speak6)
 
     def speak7():
+        def tts():
             engine = pyttsx3.init()
             engine.stop()
-            engine.say("Dividing Fractions")
-            engine.runAndWait()
-            engine.say("For fractions, division works similarly to multiplication")
-            engine.runAndWait()
-            engine.say("To divide 2 fractions, flip the second fraction and change the division symbol to a multiplication symbol and then multiply the two numbers")
-            engine.runAndWait()
+            phrases = [
+                "Dividing Fractions",
+                "For fractions, division works similarly to multiplication",
+                "To divide 2 fractions, flip the second fraction and change the division symbol to a multiplication symbol and then multiply the two numbers"
+            ]
+            for phrase in phrases:
+                engine.say(phrase)
+                engine.runAndWait()
+
+        threading.Thread(target=tts).start()
     speakbutton7 = ctk.CTkButton(Lesson_2contentframe, width=10, height=20, text="🗣️", command=speak7)
 
     
