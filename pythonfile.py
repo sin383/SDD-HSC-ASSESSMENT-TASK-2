@@ -361,7 +361,7 @@ def Lessonswindows():
             for phrase in phrases:
                 engine.say(phrase)
                 engine.runAndWait()
-
+                #chillagaming7
         threading.Thread(target=tts).start()
     speakbutton4 = ctk.CTkButton(Lesson_4contentframe, width=10, height=20, text="🗣️", command=speak4)
 
