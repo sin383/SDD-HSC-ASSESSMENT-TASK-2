@@ -7,6 +7,8 @@ import os
 import pyttsx3
 import threading
 
+
+#setting a directory for images and creating the main window    
 DIR_NAME = path.dirname(path.abspath(__file__))
 root = ctk.CTk()
 root.geometry("1000x600")
