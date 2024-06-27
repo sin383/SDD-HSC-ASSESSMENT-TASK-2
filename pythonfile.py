@@ -70,13 +70,13 @@ mylabel = ctk.CTkLabel(image_frame, text="", image=yesimage)  #image
 mylabel.place(x=0, y=0, relwidth=1, relheight=1)
 
 #Creating a frame for labels with rounded edges
-label_frame = ctk.CTkFrame(image_frame, corner_radius=100, fg_color="transparent", bg_color="transparent")  # round edges 
+label_frame = ctk.CTkFrame(image_frame, corner_radius=50, fg_color="transparent", bg_color="transparent")  # round edges 
 label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative width and height from the edges so it leaves a small gap so miss chilla can see the background 
 
-TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 20, 'bold'))
+TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions Made Easy", font=('Helvetica', 20, 'bold'))
 TitleLabel.place(x=370, y=10)  
 root.resizable(width=False, height=False)
-
+#set tts speech rate
 engine = pyttsx3.init()
 engine.setProperty('rate', 50)
 
