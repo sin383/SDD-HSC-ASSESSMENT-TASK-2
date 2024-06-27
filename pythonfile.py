@@ -22,9 +22,9 @@ L1image2 = Image.open(L1image2path)
 L1image1path = path.join(DIR_NAME, "assets", "j.png")
 L1image1 = Image.open(L1image1path)
 
-yespath = path.join(DIR_NAME, "assets", "back.png")
+yespath = path.join(DIR_NAME, "assets", "vector.png")
 yes = Image.open(yespath)
-yesimage=ctk.CTkImage(yes, size=(700,700))
+yesimage=ctk.CTkImage(yes, size=(1000,1000))
 
 #load lesson 2 images
 L2imagepath = path.join(DIR_NAME, "assets", "numberline.png")
@@ -73,7 +73,7 @@ mylabel.place(x=0, y=0, relwidth=1, relheight=1)
 label_frame = ctk.CTkFrame(image_frame, corner_radius=100, fg_color="transparent", bg_color="transparent")  # round edges 
 label_frame.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)  #relative width and height from the edges so it leaves a small gap so miss chilla can see the background 
 
-TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 18, 'bold'))
+TitleLabel = ctk.CTkLabel(label_frame, text= "Fractions made easy", font=('Helvetica', 20, 'bold'))
 TitleLabel.place(x=370, y=10)  
 root.resizable(width=False, height=False)
 
@@ -107,7 +107,7 @@ def Quizmenu():
 
     # starting the quiz
     def start_quiz(question_type):
-        # Remove the buttons
+        # Remove the buttons    
         for button in buttons:  
             button.place_forget()
 
@@ -601,8 +601,8 @@ def Settingsmenu():
 
     OptionLabel2 = ctk.CTkLabel(Settingsframe, text= "Appearance Mode")
     OptionLabel2.place(x=150, y=130)   
-    Settingstitlelabel = ctk.CTkLabel(Settingsframe, text="settings")
-    Settingstitlelabel.place(x=250,y=30)
+    Settingstitlelabel = ctk.CTkLabel(Settingsframe, font=('Helvetica', 18, 'bold'), text="Settings")
+    Settingstitlelabel.place(x=210,y=30)
 
     current_theme = ctk.get_appearance_mode()
     #change geometry and scaling
