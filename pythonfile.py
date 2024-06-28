@@ -192,7 +192,7 @@ def Lessonswindows():
     #making a lesson frame
     lessonframe = ctk.CTkFrame(image_frame)
     lessonframe.place(relx=0.04, rely=0.04, relwidth=0.9, relheight=0.9)
-    #making the left side frame for choosing lessons
+    #making the left side frame for choosing lessons 
     lessontypeframe = ctk.CTkScrollableFrame(lessonframe, corner_radius=10)
     lessontypeframe.place(x=0, y=70, relwidth=0.3, relheight=0.87)
     #making the right side frame for displaying content

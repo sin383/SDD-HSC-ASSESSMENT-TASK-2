@@ -8,8 +8,9 @@ Program Dependencies:
 - Python 3.10 or later
 - Customtkinter
 - Pillow
-- pyttsx3 
+- Pyttsx3 
 - Pip
+- Threading
 
 
 Installing Dependencies:
@@ -20,9 +21,14 @@ To install the following dependencies, Pip is required
 The download for pip can be found on this site: [ https://pypi.org/project/pip/ ]
 
 Run the command in CMD
+
 pip install customtkinter
+
 pip install Pillow
+
 pip install pyttsx3 
+
+pip install threading
 
 Download the project as a .ZIP file, and extract it 
 
@@ -30,13 +36,19 @@ Download the project as a .ZIP file, and extract it
 Open Python IDLE or VS Code by searching for it in windows search 
 Then open the whole folder in VS Code
 Then run the program by pressing F5 or the run button
+Alternatively, the program can be opened via the .exe file in the output folder
+to open the program this way, double press the .exe file
 
-To view lessons, press the Lessons tab, the user can cycle through lessons using the next and back buttons, or directly jump to a lesson using the side panel
-Press the back button to go back to the main menu
+To view lessons, press the Lessons tab, the user can cycle through lessons using the next and back buttons, or directly jump to a lesson using the side panel.
+Press the back button to go back to the main menu.
 
-To change settings, open the settings menu and choose any customisation features and they will be applied upon selection
+To change settings, open the settings menu and choose any customisation features and they will be applied upon selection.
 
 
+To read the lessons aloud, press the speech button on the top right hand side in the lessons panel.
+
+To check answers, the enter key can be pressed.
+To move to the next question, the answer must be correct, and the next button will appear normal
 
 
 
